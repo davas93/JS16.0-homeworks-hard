@@ -126,4 +126,14 @@ function clock() {
   setInterval("clock()", 1000);
 }
 clock();
-console.log(dateTime);
+
+let clockStyle = document.querySelector("#clock"),
+  clockStyle1 = document.querySelector("#clock1");
+clockStyle.style.color = "red";
+clockStyle.style.fontWeight = "bold";
+clockStyle.style.fontFamily = "Arial";
+clockStyle.style.marginBottom = "20px";
+clockStyle1.style.color = "red";
+clockStyle1.style.fontWeight = "bold";
+clockStyle1.style.fontFamily = "Arial";
+clockStyle1.style.marginBottom = "20px";
