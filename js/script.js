@@ -45,12 +45,58 @@ function clock() {
     minutes,
     " минут ",
     seconds,
-    " секунд",
+    " секунда",
   ];
+
+  //Склоняем часы
+  if (dateTime[6] >= 10 && dateTime[6] <= 20) {
+    dateTime[7] = " часов";
+  } else if (
+    2 === dateTime[6] % 10 ||
+    3 === dateTime[6] % 10 ||
+    4 === dateTime[6] % 10
+  ) {
+    dateTime[7] = " часа";
+  } else if (1 === dateTime[6] % 10) {
+    dateTime[7] = " час";
+  } else {
+    dateTime[7] = " часов";
+  }
+
+  //Склоняем минуты
+  if (dateTime[8] >= 10 && dateTime[8] <= 20) {
+    dateTime[9] = " минут";
+  } else if (
+    2 === dateTime[8] % 10 ||
+    3 === dateTime[8] % 10 ||
+    4 === dateTime[8] % 10
+  ) {
+    dateTime[9] = " минуты";
+  } else if (1 === dateTime[8] % 10) {
+    dateTime[9] = " минута";
+  } else {
+    dateTime[9] = " минут";
+  }
+
+  //Склоняем секунды
+  if (dateTime[10] >= 10 && dateTime[10] <= 20) {
+    dateTime[11] = " секунд";
+  } else if (
+    2 === dateTime[10] % 10 ||
+    3 === dateTime[10] % 10 ||
+    4 === dateTime[10] % 10
+  ) {
+    dateTime[11] = " секунды";
+  } else if (1 === dateTime[10] % 10) {
+    dateTime[11] = " секунда";
+  } else {
+    dateTime[11] = " секунд";
+  }
+
   if (document.layers) {
-    document.layers.doc_time.document.write(dateTime);
-    document.layers.doc_time.document.close();
-  } else document.getElementById("doc_time").innerHTML = dateTime.join(" ");
+    document.layers.clock.document.write(dateTime);
+    document.layers.clock.document.close();
+  } else document.getElementById("clock").innerHTML = dateTime.join(" ");
   setInterval("clock()", 1000);
 }
 clock();
