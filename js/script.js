@@ -1,3 +1,4 @@
+//Вариант а)
 function clock() {
   let d = new Date(),
     year = d.getFullYear(),
@@ -33,6 +34,7 @@ function clock() {
     "Суббота"
   );
 
+  //Вариант вывода а)
   dateTime = [
     "Сегодня ",
     week[weekday],
@@ -93,10 +95,34 @@ function clock() {
     dateTime[11] = " секунд";
   }
 
+  //Вариант вывода б)
+  //Добавим нули перед числами, если <10
+  if (day <= 9) day = "0" + day;
+  if (hours <= 9) hours = "0" + hours;
+  if (minutes <= 9) minutes = "0" + minutes;
+  if (seconds <= 9) seconds = "0" + seconds;
+
+  dateTimeNum =
+    day +
+    "." +
+    monthNum +
+    "." +
+    year +
+    " - " +
+    hours +
+    ":" +
+    minutes +
+    ":" +
+    seconds;
+
   if (document.layers) {
     document.layers.clock.document.write(dateTime);
     document.layers.clock.document.close();
+    document.layers.clock1.document.write(dateTimeNum);
+    document.layers.clock1.document.close();
   } else document.getElementById("clock").innerHTML = dateTime.join(" ");
+  setInterval("clock()", 1000);
+  document.getElementById("clock1").innerHTML = dateTimeNum;
   setInterval("clock()", 1000);
 }
 clock();
