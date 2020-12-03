@@ -1,5 +1,6 @@
-//Вариант а)
-function clock() {
+let clock = function () {
+  console.log("ну как тут?");
+  //Вариант а)
   let d = new Date(),
     year = d.getFullYear(),
     monthNum = d.getMonth(),
@@ -7,32 +8,30 @@ function clock() {
     day = d.getDate(),
     hours = d.getHours(),
     minutes = d.getMinutes(),
-    seconds = d.getSeconds();
-
-  month = new Array(
-    "января",
-    "февраля",
-    "марта",
-    "апреля",
-    "мая",
-    "июня",
-    "июля",
-    "августа",
-    "сентября",
-    "октября",
-    "ноября",
-    "декабря"
-  );
-
-  week = new Array(
-    "Восересенье",
-    "Понедельник",
-    "Вторник",
-    "Среда",
-    "Четверг",
-    "Пятница",
-    "Суббота"
-  );
+    seconds = d.getSeconds(),
+    month = [
+      "января",
+      "февраля",
+      "марта",
+      "апреля",
+      "мая",
+      "июня",
+      "июля",
+      "августа",
+      "сентября",
+      "октября",
+      "ноября",
+      "декабря",
+    ],
+    week = [
+      "Восересенье",
+      "Понедельник",
+      "Вторник",
+      "Среда",
+      "Четверг",
+      "Пятница",
+      "Суббота",
+    ];
 
   //Вариант вывода а)
   dateTime = [
@@ -115,18 +114,16 @@ function clock() {
     ":" +
     seconds;
 
-  if (document.layers) {
-    document.layers.clock.document.write(dateTime);
-    document.layers.clock.document.close();
-    document.layers.clock1.document.write(dateTimeNum);
-    document.layers.clock1.document.close();
-  } else document.getElementById("clock").innerHTML = dateTime.join(" ");
-  setInterval("clock()", 1000);
-  document.getElementById("clock1").innerHTML = dateTimeNum;
-  setInterval("clock()", 1000);
-}
-clock();
+  //Добавляем на страницу
 
+  document.getElementById("clock").innerHTML = dateTime.join(" ");
+  document.getElementById("clock1").innerHTML = dateTimeNum;
+};
+
+clock();
+setInterval(clock, 1000);
+
+//Стили
 let clockStyle = document.querySelector("#clock"),
   clockStyle1 = document.querySelector("#clock1");
 clockStyle.style.color = "red";
